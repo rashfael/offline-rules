@@ -46,8 +46,6 @@ const children = computed(() => {
 			font-weight: 300
 			&:hover
 				background-color: $clr-grey-400
-.c-nav-level .leaf
+.c-nav-level.leaf
 	font-weight: 300
-	&:hover
-		background-color: $clr-grey-400
 </style>

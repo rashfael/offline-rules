@@ -20,6 +20,7 @@ const sortedChildren = computed(() => {
 <style lang="stylus">
 .c-category
 	display: flex
+	flex: auto
 	> nav
 		display: flex
 		flex-direction: column

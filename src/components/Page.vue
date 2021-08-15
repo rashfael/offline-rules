@@ -19,6 +19,7 @@ for (const fragment of props.fragments) {
 .c-page
 	display: flex
 	flex-direction: column
+	flex: auto
 	.content
 		padding: 16px
 </style>
