@@ -33,8 +33,19 @@ const sortedFilteredCategories = computed(() => {
 	return topLevelCategories.filter(id => filteredCategories.includes(id))
 })
 
-watch(() => sortedFilteredCategories.value, () => {
-	router.replace(`/${sortedFilteredCategories.value[0]}`)
+watch(() => filteredData.value, () => {
+	if (search.value === '') {
+		router.replace('/')
+		return
+	}
+	const path = []
+	const traverseChildren = (level) => {
+		if (!level) return
+		path.push(level.id)
+		traverseChildren(Object.values(level.children)[0])
+	}
+	traverseChildren(filteredData.value.children[sortedFilteredCategories.value[0]])
+	router.replace(`/${path.join('/')}`)
 })
 
 provide('filteredData', filteredData)
