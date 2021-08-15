@@ -3,13 +3,14 @@
 	.content(v-html="page.content")
 </template>
 <script setup>
-import { ref, computed } from 'vue'
+import { inject } from 'vue'
+const filteredData = inject('filteredData')
 const props = defineProps({
 	categoryId: String,
 	fragments: Array
 })
 
-let page = data.children[props.categoryId]
+let page = filteredData.value.children[props.categoryId]
 for (const fragment of props.fragments) {
 	page = page.children[fragment]
 }
