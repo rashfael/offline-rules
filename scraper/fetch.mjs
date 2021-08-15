@@ -1,10 +1,8 @@
 import fs from 'fs/promises'
-import path from 'path'
 import got from 'got'
 import cheerio from 'cheerio'
+import { OUTPUT_DIR, RAW_OUTPUT_PATH } from '../globals.mjs'
 
-const OUTPUT_DIR = path.join(process.cwd(), './scraper-output')
-const OUTPUT_PATH = path.join(OUTPUT_DIR, './raw.json')
 const GOT_OPTS = {
 	prefixUrl: 'https://www.ulisses-regelwiki.de/'
 }
@@ -43,4 +41,4 @@ async function parsePage(url) {
 }
 
 await fs.mkdir(OUTPUT_DIR, {recursive: true})
-await fs.writeFile(OUTPUT_PATH, JSON.stringify(pages, null, 2))
+await fs.writeFile(RAW_OUTPUT_PATH, JSON.stringify(pages, null, 2))

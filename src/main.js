@@ -1,4 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import Buntpapier from 'buntpapier'
+import router from './router.js'
+import { RouterView } from 'vue-router'
+import 'roboto-fontface'
+import '@mdi/font/css/materialdesignicons.css'
+import '~/styles/global.styl'
 
-createApp(App).mount('#app')
+const app = createApp(RouterView)
+app.use(router)
+app.use(Buntpapier)
+app.mount('#app')
