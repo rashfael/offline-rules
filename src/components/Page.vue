@@ -1,5 +1,5 @@
 <template lang="pug">
-.c-page
+.c-page(v-scrollbar.y="")
 	.content(v-html="page.content")
 </template>
 <script setup>
@@ -18,5 +18,7 @@ for (const fragment of props.fragments) {
 <style lang="stylus">
 .c-page
 	display: flex
-	padding: 16px
+	flex-direction: column
+	.content
+		padding: 16px
 </style>
