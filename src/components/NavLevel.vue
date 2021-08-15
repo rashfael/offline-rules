@@ -1,5 +1,5 @@
 <template lang="pug">
-.c-nav-level
+.c-nav-level(:class="{'leaf': !children.length}")
 	router-link(:to="{name: 'page', params: {fragments: path}}") {{ level.id }}
 	NavLevel(v-for="child of children", :level="child", :path="path", :key="child.id")
 </template>
@@ -46,4 +46,8 @@ const children = computed(() => {
 			font-weight: 300
 			&:hover
 				background-color: $clr-grey-400
+.c-nav-level .leaf
+	font-weight: 300
+	&:hover
+		background-color: $clr-grey-400
 </style>
